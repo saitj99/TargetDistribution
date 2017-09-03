@@ -66,11 +66,11 @@ def printItemCombinations(targetPrice, itemNameDict, itemPriceDict):
         n = int(math.pow(2, m))
         print("\nCOMBINATION OF ITEMS:")
         for i in range(1, n):
-            order = bin(i)[2:].zfill(m)
-            modified_order=[int(element) for  element in order]
+            orderString = bin(i)[2:].zfill(m)
+            order=[int(element) for  element in orderString]
             sum = 0
             for j in range(0, m):
-                if(modified_order[j]==1):
+                if(order[j]==1):
                     sum = sum + priceList[j]
             sum = round(sum, 2)
             if(sum == targetPrice):
@@ -83,7 +83,7 @@ def printItemCombinations(targetPrice, itemNameDict, itemPriceDict):
                     print("Combination #",itemCombinations)
                     print("----------------")
                 for j in range(0, m):
-                    if(modified_order[j]==1):
+                    if(order[j]==1):
                         print("{0:22s} ${1:4.2f}".format(itemNameDict[j+1], itemPriceDict[j+1]))
                 print("---------------------------------")
         if(itemCombinations==0):
