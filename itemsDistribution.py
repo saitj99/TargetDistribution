@@ -15,12 +15,13 @@ def main():
         itemsFileName = input("Enter your file name including extension: ")
         targetPrice = 0
         targetPrice = readItems(itemsFileName, targetPrice, itemNameDict, itemPriceDict)
-        if(targetPrice < 0):
-            print("Target Price cannot be negative.")
-        elif(targetPrice != None):
-            print("\nTARGET PRICE: $%.2f" %(targetPrice))
-            printItemRecords(itemNameDict, itemPriceDict)
-            printItemCombinations(targetPrice, itemNameDict, itemPriceDict)
+        if(targetPrice != None):
+            if(targetPrice < 0):
+                print("Target Price cannot be negative.")
+            else:
+                print("\nTARGET PRICE: $%.2f" %(targetPrice))
+                printItemRecords(itemNameDict, itemPriceDict)
+                printItemCombinations(targetPrice, itemNameDict, itemPriceDict)
     except Exception:
             print("Error occured. Check Input.")
             print(traceback.format_exc())
